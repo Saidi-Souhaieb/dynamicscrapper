@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-from utils import utils
+from .utils import utils
 
 
 import time
