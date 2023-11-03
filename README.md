@@ -12,7 +12,7 @@ The package is equipped with a **CLICK CLI** to give the input needed to extract
 
 ### **Steps:**
 1. First step is giving the link of the site you want scrapped. (it can be either a page that contains a bunch of links to click and extract data from inside every link or one single page that you want data extracted from).
-2. If the link you gave is of a page containing a bunch of links to get data from, write the class name of the <div> containing the <a> tag that contains these links (in most cases these links always have the same class name)**[LEAVE EMPTY IF IT'S A SINGLE PAGE EXTRACTION]**.
+2. If the link you gave is of a page containing a bunch of links to get data from, write the class name of the <div> containing the "a" tag that contains these links (in most cases these links always have the same class name)**[LEAVE EMPTY IF IT'S A SINGLE PAGE EXTRACTION]**.
 3. Choose the type of pagination used in said page to be able to extract data from all pages:
   - number: for sites with numbered pagination
   - see_more: for sites with a see more button that expands the rest of the information
