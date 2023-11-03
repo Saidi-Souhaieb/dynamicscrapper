@@ -1,11 +1,7 @@
 from selenium import webdriver
 
-try:
-    from utils import utils
-except (ImportError, ModuleNotFoundError):
-    from DynamicScrapperPackagetest.utils import utils
-except:
-    from .utils import utils
+from .utils import utils
+
 
 import time
 import click
