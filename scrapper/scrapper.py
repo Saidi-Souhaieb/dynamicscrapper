@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-from .utils import utils
+from utils import utils
 
 
 import time
@@ -23,11 +23,6 @@ def main(site_link, link_detail_class, pagination, pagination_type):
     web_scrape = WebScrape()
     web_scrape.Scrape(site_link, link_detail_class,
                       pagination, pagination_type)
-
-
-def Scrape():
-    if __name__ == "__main__":
-        main()
 
 
 class WebScrape(utils):
@@ -68,3 +63,7 @@ class WebScrape(utils):
         else:
             #  Scrap
             self.scrapData(link_detail_class, driver, scrap_class_names)
+
+
+if __name__ == "__main__":
+    main()
