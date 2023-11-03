@@ -29,13 +29,13 @@ This step is gonna look like this:
             - class-name: using class-names
             - id: using id
             - name: using name attribute
-            - link-text: by giving the text inside a <a> tag
+            - link-text: by giving the text inside a "a" tag
   - Choose the name of the type you specified before:
             - tag-name : the tag name you want to extract from (h1, h2, a ...)
             - class-name: the class name needed
             - id: the id needed
             - name: the name inside the attribute
-            - link-text: the text inside the <a> tag 
+            - link-text: the text inside the "a" tag 
   - **IF** you are trying to get the value inside an attribute of a tag, write the tag name   you want to get (for example you need img url inside an "img" tag, you write "src" to get the text inside the src)
   - Choose Y or N to continue adding items to scrap or stop.
 
