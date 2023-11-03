@@ -8,7 +8,7 @@ with open('README.md') as f:
 
 setup(
     name='dynamicscrapper',
-    version='10.0.5',
+    version='10.0.6',
     author='Saidi Souhaieb',
     author_email='Saidisouhaieb@takiacademyteam.com',
     description='A package to scrap the web dynamically',

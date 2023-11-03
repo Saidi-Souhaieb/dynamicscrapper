@@ -7,7 +7,6 @@ import time
 
 import json
 from selenium.webdriver.common.by import By
-import time
 import click
 
 
