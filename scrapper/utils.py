@@ -1,8 +1,6 @@
 import json
 from selenium.webdriver.common.by import By
 import time
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import click
 
 
@@ -245,12 +243,13 @@ class utils():
 
     # Inserting the searching data
 
-    @click.command()
-    @click.option("--name", prompt="Enter the name of the item to scrap")
-    @click.option("--type_element", prompt="Enter the type of the item to scrap")
-    @click.option("--element_name", prompt="Enter the  name of the item to scrap")
-    @click.option("--tag", prompt="Enter that tag that contains the information needed(src, href..) (LEAVE EMPTY OF NOT NEEDED)", default="")
-    # Create dicts from class names ,names and tags
-    def createClassDict(name, type_element, element_name, tag):
-        dict = {name: {element_name: [tag, type_element]}}
-        return dict
+
+@click.command()
+@click.option("--name", prompt="Enter the name of the item to scrap")
+@click.option("--type_element", prompt="Enter the type of the item to scrap")
+@click.option("--element_name", prompt="Enter the  name of the item to scrap")
+@click.option("--tag", prompt="Enter that tag that contains the information needed(src, href..) (LEAVE EMPTY OF NOT NEEDED)", default="")
+# Create dicts from class names ,names and tags
+def createClassDict(name, type_element, element_name, tag):
+    dict = {name: {element_name: [tag, type_element]}}
+    return dict

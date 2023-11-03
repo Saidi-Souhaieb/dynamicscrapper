@@ -1,7 +1,6 @@
 from selenium import webdriver
 
-from .utils import utils
-
+from utils import utils, createClassDict
 
 import time
 import click
@@ -32,13 +31,13 @@ class WebScrape(utils):
         scrap_class_names = []
         # Appending the inforamtion in the scrap_class_names list
         scrap_class_names.append(
-            self.createClassDict.main(standalone_mode=False))
+            createClassDict.main(standalone_mode=False))
         # Choice of adding more information in the scra_class_names list
         again = input("Enter another class? Y/N")
         while again == "Y":
             if again == "Y":
                 scrap_class_names.append(
-                    self.createClassDict.main(standalone_mode=False))
+                    createClassDict.main(standalone_mode=False))
             again = input("Enter another class? Y/N")
 
         driver = webdriver.Safari()
@@ -65,5 +64,4 @@ class WebScrape(utils):
             self.scrapData(link_detail_class, driver, scrap_class_names)
 
 
-if __name__ == "__main__":
-    main()
+main()

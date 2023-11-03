@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: dynamicscrapper
-Version: 5.4.2
+Version: 10.0.2
 Summary: A package to scrap the web dynamically
 Author: Saidi Souhaieb
 Author-email: Saidisouhaieb@takiacademyteam.com
@@ -9,6 +9,20 @@ Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
+Requires-Dist: attrs==23.1.0
+Requires-Dist: certifi==2023.7.22
+Requires-Dist: click==8.1.7
+Requires-Dist: h11==0.14.0
+Requires-Dist: idna==3.4
+Requires-Dist: outcome==1.3.0.post0
+Requires-Dist: PySocks==1.7.1
+Requires-Dist: selenium==4.15.1
+Requires-Dist: sniffio==1.3.0
+Requires-Dist: sortedcontainers==2.4.0
+Requires-Dist: trio==0.23.0
+Requires-Dist: trio-websocket==0.11.1
+Requires-Dist: urllib3==2.0.7
+Requires-Dist: wsproto==1.2.0
 
 # Dynamic Scrapper **STILL IN DEVELOPMENT**
 
