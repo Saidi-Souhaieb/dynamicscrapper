@@ -8,6 +8,7 @@ setup(
     description='A package to scrap the web dynamically',
     long_description="""# Markdown supported!\n\n* Cheer\n* Celebrate\n""",
     long_description_content_type='text/markdown',
+    readme="README.md",
     packages=find_packages(),
     classifiers=[
         'Programming Language :: Python :: 3',
