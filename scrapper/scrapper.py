@@ -25,6 +25,11 @@ def main(site_link, link_detail_class, pagination, pagination_type):
                       pagination, pagination_type)
 
 
+def Scrape():
+    if __name__ == "__main__":
+        main()
+
+
 class WebScrape(utils):
 
     def Scrape(self, site_link, link_detail_class, pagination, pagination_type):
@@ -63,9 +68,3 @@ class WebScrape(utils):
         else:
             #  Scrap
             self.scrapData(link_detail_class, driver, scrap_class_names)
-
-
-if __name__ == "__main__":
-    main()
-
-# comment
