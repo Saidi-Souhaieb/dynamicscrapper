@@ -49,9 +49,9 @@ class utils():
             json_data_file = json.load(json_File)
             return json_data_file[item]
 
-    # Find elements using class_name
-
-    def findElements(self, class_name, driver, type_class_name):
+    def findTypeElements(self, driver, class_name, type_class_name):
+        print("class_name", class_name)
+        print("type", type_class_name)
         if type_class_name == "tag-name":
             elements = driver.find_elements(
                 By.TAG_NAME, class_name)
@@ -69,23 +69,34 @@ class utils():
                 By.LINK_TEXT, class_name)
         return elements
 
+    def findTypeElement(self, driver, class_name, type_class_name):
+        print("class_name", class_name)
+        print("type", type_class_name)
+        if type_class_name == "tag-name":
+            elements = driver.find_element(
+                By.TAG_NAME, class_name)
+        if type_class_name == "class-name":
+            elements = driver.find_element(
+                By.CLASS_NAME, class_name)
+        if type_class_name == "id":
+            elements = driver.find_element(
+                By.ID, class_name)
+        if type_class_name == "name":
+            elements = driver.find_element(
+                By.NAME, class_name)
+        if type_class_name == "link-text":
+            elements = driver.find_element(
+                By.LINK_TEXT, class_name)
+        return elements
+    # Find elements using class_name
+
+    def findElements(self, class_name, driver, type_class_name):
+        elements = self.findTypeElements(driver, class_name, type_class_name)
+        return elements
+
     def findElement(self, class_name, driver, type_class_name):
 
-        if type_class_name == "tag-name":
-            element = driver.find_element(
-                By.TAG_NAME, class_name)
-        elif type_class_name == "class-name":
-            element = driver.find_element(
-                By.CLASS_NAME, "h1")
-        elif type_class_name == "id":
-            element = driver.find_element(
-                By.ID, class_name)
-        elif type_class_name == "name":
-            element = driver.find_element(
-                By.NAME, class_name)
-        elif type_class_name == "link-text":
-            element = driver.find_element(
-                By.LINK_TEXT, class_name)
+        element = self.findTypeElement(driver, class_name, type_class_name)
         return element
 
     # Getting links from elements
@@ -134,7 +145,12 @@ class utils():
             f.write(json_result)
             f.write(",")
             f.write('\n')
-    # Scrap data
+    # Click an element
+
+    def clickElement(self, driver, click_type, click_element):
+        time.sleep(3)
+        element = self.findTypeElement(driver, click_element, click_type)
+        element.click()
 
     #  Navigate and scrap data
 
@@ -163,9 +179,14 @@ class utils():
                         class_name = list(class_n.keys())[0]
                         class_name_attributes = class_n[class_name]
                         type_class_name = class_name_attributes[1]
+                        click_type = class_name_attributes[2]
+                        click_element = class_name_attributes[3]
 
                         # Extracting data and printing error message incase the class is wrong
                         try:
+                            if click_element != "":
+                                self.clickElement(
+                                    driver, click_type, click_element)
                             element = self.extractData(
                                 class_name, driver, type_class_name)
 
@@ -188,9 +209,14 @@ class utils():
                     class_name = list(class_n.keys())[0]
                     tags = class_n[class_name]
                     type_class_name = class_name_attributes[1]
+                    click_type = class_name_attributes[2]
+                    click_element = class_name_attributes[3]
 
                     # Extracting data and printing error message incase the class is wrong
                     try:
+                        if click_element != "":
+                            self.clickElement(
+                                driver, click_type, click_element)
                         element = self.extractData(
                             class_name, driver, type_class_name)
 
@@ -252,12 +278,15 @@ class utils():
 
 @click.command()
 @click.option("--name", prompt="Enter the name of the item to scrap")
+@click.option("--click_type", prompt="Enter the TYPE of the item that needs to be clicked to open (LEAVE EMPTY OF NOT NEEDED)", default="")
+@click.option("--click_element", prompt="Enter the NAME of the item that needs to be clicked to open (LEAVE EMPTY OF NOT NEEDED)", default="")
 @click.option("--type_element", prompt="Enter the type of the item to scrap")
 @click.option("--element_name", prompt="Enter the  name of the item to scrap")
 @click.option("--tag", prompt="Enter that tag that contains the information needed(src, href..) (LEAVE EMPTY OF NOT NEEDED)", default="")
 # Create dicts from class names ,names and tags
-def createClassDict(name, type_element, element_name, tag):
-    dict = {name: {element_name: [tag, type_element]}}
+def createClassDict(name, type_element, element_name, tag, click_type, click_element):
+    dict = {name: {element_name: [
+        tag, type_element, click_type, click_element]}}
     return dict
 
 
